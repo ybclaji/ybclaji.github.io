@@ -5,20 +5,19 @@ module.exports = {
     nav: [
       { text: 'Home', link: '/' },
       { text: 'vuepress', link: '/vuepress/' },
-      { text: 'springboot', link: '/springboot/' },
+      { text: 'badger', link: '/badger/' },
       {text:'前端',link:'/mall-learning/web/'},
       {text:'后端',link:'/mall-learning/admin/'}
     ],
     // 侧边栏动态展示,使用json数组和对象,导航变化对象变化,侧边栏变动,
     // sidebar:'auto',
     sidebar:{
-      '/springboot/':[{
-        title:'基本使用',
+      '/badger/':[{
+        title:'badger后端开发',
         collapsable: true,
         children:[
-          {title:'介绍',path:'/springboot/'},
-          {title:'环境',path:'/springboot/env'},
-          {title:'集成swagger2',path:'/springboot/swagger'},
+          {title:'说明',path:'/badger/'},
+          {title:'开发环境',path:'/badger/env'},
         ]
       }],
       '/vuepress/':[{

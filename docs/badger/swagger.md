@@ -1,17 +1,15 @@
-## 二.集成Swagger2文档
+### 介绍
 Swagger2 的出现就是为了从根本上解决上述问题。它作为一个规范和完整的框架，可以用于生成、描述、调用和可视化 RESTful 风格的 Web 服务：
 - 接口文档在线自动生成，文档随接口变动实时更新，节省维护成本
 - 支持在线接口测试，不依赖第三方工具
 ### 添加依赖
 ```xml
 <dependencies>
-    <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui -->
     <dependency>
         <groupId>io.springfox</groupId>
         <artifactId>springfox-swagger-ui</artifactId>
         <version>2.9.2</version>
     </dependency>
- <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
     <dependency>
        <groupId>io.springfox</groupId>
        <artifactId>springfox-swagger2</artifactId>

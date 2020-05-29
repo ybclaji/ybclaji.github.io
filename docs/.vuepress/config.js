@@ -12,6 +12,15 @@ module.exports = {
     // 侧边栏动态展示,使用json数组和对象,导航变化对象变化,侧边栏变动,
     // sidebar:'auto',
     sidebar:{
+      '/springboot/':[{
+        title:'基本使用',
+        collapsable: true,
+        children:[
+          {title:'介绍',path:'/springboot/'},
+          {title:'环境',path:'/springboot/env'},
+          {title:'集成swagger2',path:'/springboot/swagger'},
+        ]
+      }],
       '/vuepress/':[{
         title:'基本使用',
         collapsable: true,

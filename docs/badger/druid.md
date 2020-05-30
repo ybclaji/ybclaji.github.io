@@ -69,7 +69,7 @@ druid配置里需要log4j2,先要把springboot里面的logback去除掉
 </dependency>
 ```
 ### log4j2配置
-application.yml同名下默认log4j2-spring.xml,如果自定义需要在application.yml中进行配置
+application.yml同名下默认log4j2-spring.xml,如果自定义文件名需要在application.yml中进行配置
 ```yml
 #日志配置
 logging:
@@ -126,6 +126,7 @@ log4j2-spring.xml
     </loggers>
 </configuration>
 ```
+另一个配置文件,这个较好用
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!--Configuration后面的status，这个用于设置log4j2自身内部的信息输出，可以不设置，当设置成trace时，你会看到log4j2内部各种详细输出-->
@@ -226,5 +227,108 @@ log4j2-spring.xml
 
 </configuration>
 ```
+### 自定义Druid配置
+config/DruidDataSourceProperties
+```java
+//自定义properties
+@ConfigurationProperties(prefix = "spring.datasource.druid")
+public class DruidDataSourceProperties {
+    private String driverClassName;
+    private String url;
+    private String username;
+    private String password;
+
+    private int initialSize;
+    private int minIdle;
+    private int maxActive = 100;
+    private long maxWait;
+    private long timeBetweenEvictionRunsMillis;
+    private long minEvictableIdleTimeMillis;
+    private String validationQuery;
+    private boolean testWhileIdle;
+    private boolean testOnBorrow;
+    private boolean testOnReturn;
+    private boolean poolPreparedStatements;
+    private int maxPoolPreparedStatementPerConnectionSize;
+    private String filters;
+    //省略setter&getter
+```
+config/DruidConfig
+```java
+@Configuration
+@EnableConfigurationProperties({DruidDataSourceProperties.class})
+public class DruidConfig {
+    @Autowired
+    private DruidDataSourceProperties properties;
+
+    @Bean
+    @ConditionalOnMissingBean
+    public DataSource druidDataSource() {
+        DruidDataSource druidDataSource = new DruidDataSource();
+        druidDataSource.setDriverClassName(properties.getDriverClassName());
+        druidDataSource.setUrl(properties.getUrl());
+        druidDataSource.setUsername(properties.getUsername());
+        druidDataSource.setPassword(properties.getPassword());
+        druidDataSource.setInitialSize(properties.getInitialSize());
+        druidDataSource.setMinIdle(properties.getMinIdle());
+        druidDataSource.setMaxActive(properties.getMaxActive());
+        druidDataSource.setMaxWait(properties.getMaxWait());
+        druidDataSource.setTimeBetweenEvictionRunsMillis(properties.getTimeBetweenEvictionRunsMillis());
+        druidDataSource.setMinEvictableIdleTimeMillis(properties.getMinEvictableIdleTimeMillis());
+        druidDataSource.setValidationQuery(properties.getValidationQuery());
+        druidDataSource.setTestWhileIdle(properties.isTestWhileIdle());
+        druidDataSource.setTestOnBorrow(properties.isTestOnBorrow());
+        druidDataSource.setTestOnReturn(properties.isTestOnReturn());
+        druidDataSource.setPoolPreparedStatements(properties.isPoolPreparedStatements());
+        druidDataSource.setMaxPoolPreparedStatementPerConnectionSize(properties.getMaxPoolPreparedStatementPerConnectionSize());
+
+        try {
+            druidDataSource.setFilters(properties.getFilters());
+            druidDataSource.init();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return druidDataSource;
+    }
+    /**
+     * 注册Servlet信息， 配置监控视图
+     *
+     * @return
+     */
+    @Bean
+    @ConditionalOnMissingBean
+    public ServletRegistrationBean druidServlet() {
+        ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(new StatViewServlet(), "/druid/*");
+
+        //白名单：
+        servletRegistrationBean.addInitParameter("allow","192.168.6.195");
+        //IP黑名单 (存在共同时，deny优先于allow) : 如果满足deny的话提示:Sorry, you are not permitted to view this page.
+        servletRegistrationBean.addInitParameter("deny","192.168.6.73");
+        //登录查看信息的账号密码, 用于登录Druid监控后台
+        servletRegistrationBean.addInitParameter("loginUsername", "admin");
+        servletRegistrationBean.addInitParameter("loginPassword", "admin");
+        //是否能够重置数据.
+        servletRegistrationBean.addInitParameter("resetEnable", "true");
+        return servletRegistrationBean;
+    }
+    /**
+     * 注册Filter信息, 监控拦截器
+     *
+     * @return
+     */
+    @Bean
+    @ConditionalOnMissingBean
+    public FilterRegistrationBean filterRegistrationBean() {
+        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
+        filterRegistrationBean.setFilter(new WebStatFilter());
+        filterRegistrationBean.addUrlPatterns("/*");
+        filterRegistrationBean.addInitParameter("exclusions", "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
+        return filterRegistrationBean;
+    }
+}
+```
 ### 测试验证
+浏览器打开
 通过控制器接口测试druid数据源
+![druid](../assets/images/druid/druid_01.png)

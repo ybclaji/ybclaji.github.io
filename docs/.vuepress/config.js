@@ -6,6 +6,7 @@ module.exports = {
       { text: 'Home', link: '/' },
       { text: 'vuepress', link: '/vuepress/' },
       { text: 'badger', link: '/badger/' },
+      { text: 'badger-ui', link: '/badger-ui/' },
       {text:'前端',link:'/mall-learning/web/'},
       {text:'后端',link:'/mall-learning/admin/'}
     ],
@@ -13,11 +14,18 @@ module.exports = {
     // sidebar:'auto',
     sidebar:{
       '/badger/':[{
-        title:'badger后端开发',
-        collapsable: true,
+        title:'后端学习',
+        collapsable: false,
         children:[
           {title:'说明',path:'/badger/'},
           {title:'开发环境',path:'/badger/env'},
+        ]
+      }],
+      '/badger-ui/':[{
+        title:'前端学习',
+        collapsable: false,
+        children:[
+          {title:'说明',path:'/badger-ui/'},
         ]
       }],
       '/vuepress/':[{

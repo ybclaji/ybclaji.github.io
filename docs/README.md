@@ -1,7 +1,7 @@
 ---
 home: true
 heroImage: /hero.png
-heroText: mall learning
+heroText: learning
 tagline: 学习springboot vue 前后端分离开发
 actionText: 快速上手 →
 actionLink: /mall-learning/web/

@@ -25,7 +25,9 @@ module.exports = {
         title:'前端学习',
         collapsable: false,
         children:[
-          {title:'说明',path:'/badger-ui/'},
+          {title:'env',path:'/badger-ui/'},
+          {title:'axios',path:'/badger-ui/axios'},
+          {title:'login',path:'/badger-ui/login'},
         ]
       }],
       '/vuepress/':[{

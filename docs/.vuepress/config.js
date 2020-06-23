@@ -5,6 +5,7 @@ module.exports = {
     nav: [
       { text: 'Home', link: '/' },
       { text: 'vuepress', link: '/vuepress/' },
+      { text: 'git', link: '/git/' },
       { text: 'badger', link: '/badger/' },
       { text: 'badger-ui', link: '/badger-ui/' },
       {text:'前端',link:'/mall-learning/web/'},
@@ -35,6 +36,15 @@ module.exports = {
         collapsable: true,
         children:[
           {title:'快速上手',path:'/vuepress/'},
+          {title:'配置',path:'/vuepress/baseconfig'},
+          {title:'部署',path:'/vuepress/deploy'},
+        ]
+      }],
+      '/git/':[{
+        title:'git&github',
+        collapsable: true,
+        children:[
+          {title:'快速上手',path:'/git/'},
           {title:'配置',path:'/vuepress/baseconfig'},
           {title:'部署',path:'/vuepress/deploy'},
         ]

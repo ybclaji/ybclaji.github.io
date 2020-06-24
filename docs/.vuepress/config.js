@@ -42,11 +42,14 @@ module.exports = {
       }],
       '/git/':[{
         title:'git&github',
-        collapsable: true,
+        collapsable: false,
         children:[
-          {title:'快速上手',path:'/git/'},
-          {title:'配置',path:'/vuepress/baseconfig'},
-          {title:'部署',path:'/vuepress/deploy'},
+          {title:'上手',path:'/git/'},
+          {title:'概念',path:'/git/concept'},
+          {title:'流程',path:'/git/activity'},
+          {title:'基本操作',path:'/git/action'},
+          {title:'分支',path:'/git/branch'},
+          {title:'远程',path:'/git/remote'},
         ]
       }],
       '/mall-learning/admin':[{

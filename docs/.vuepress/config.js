@@ -50,7 +50,7 @@ module.exports = {
           {title:'基本操作',path:'/git/action'},
           {title:'分支',path:'/git/branch'},
           {title:'远程',path:'/git/remote'},
-          {title:'pullRequest',path:'/git/pullrequest'},
+          {title:'P&R',path:'/git/pullrequest'},
         ]
       }],
       '/mall-learning/admin':[{

@@ -51,6 +51,7 @@ module.exports = {
           {title:'分支',path:'/git/branch'},
           {title:'远程',path:'/git/remote'},
           {title:'P&R',path:'/git/pullrequest'},
+          {title:'开发流程',path:'/git/devflow'},
         ]
       }],
       '/mall-learning/admin':[{

@@ -143,9 +143,9 @@ Follow-up actions:
 - When done, run:
 git flow release finish '1.0.0'
 ```
-![git](../assets/images/git/git_20.jpg)
+![git](../assets/images/git/git_20.jpg)<br>
 2. 分支内工作
-修改版本编号等，测试发现bug相关的修正提交给这个分支
+修改版本编号等，测试发现bug相关的修正提交给这个分支<br>
 3. 进行发布与合并
 release finish后，release分支将合并至master分支
 ```
@@ -166,7 +166,7 @@ Release 1.0.0
 # Lines starting with '#' will be ignored.
 #
 ```
-![git](../assets/images/git/git_22.jpg)
+![git](../assets/images/git/git_22.jpg)<br>
 随后，release分支合并至develop分支
 ```
 Merge branch 'release/1.0.0' into develop
@@ -176,7 +176,7 @@ Merge branch 'release/1.0.0' into develop
 # Lines starting with '#' will be ignored, and an empty message aborts
 # the commit.
 ```
-![git](../assets/images/git/git_23.jpg)
+![git](../assets/images/git/git_23.jpg)<br>
 全部结束后
 ```
 $ git flow release finish '1.0.0'

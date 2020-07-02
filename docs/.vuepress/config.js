@@ -57,6 +57,13 @@ module.exports = {
           {title:'外链',path:'/git/otherDoc'},
         ]
       }],
+      '/docker/':[{
+        title:'docker',
+        collapsable: false,
+        children:[
+          {title:'docker使用',path:'/docker/'},
+        ]
+      }],
       '/mall-learning/admin':[{
         title:'mall后端学习',
         collapsable: false,

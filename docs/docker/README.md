@@ -22,12 +22,12 @@ Docker可以方便打包，测试及应用部署
 </tr>
 <tr>
 <td style="text-align:left">原理</td>
-<td style="text-align:left">和宿主机共享内核，所有容器运行在容器引擎之上，容器并非一个完整的操作系统，所有容器共享操作系统，在进程级进行隔离</td>
+<td style="text-align:left">和宿主机共享内核，所有容器运行在容器引擎之上，容器并非一个完整的操作系统，所有容器共享操作系统，在进程级进行隔离</td>
 <td style="text-align:left">每一个虚拟机都建立在虚拟的硬件之上，提供指令级的虚拟，具备一个完整的操作系统</td>
 </tr>
 <tr>
 <td style="text-align:left">优点</td>
-<td style="text-align:left">高效、集中。一个硬件节点可以运行数以百计的的容器，非常节省资源，QoS 会尽量满足，但不保证一定满足。内核由提供者升级，服务由服务提供者管理</td>
+<td style="text-align:left">高效、集中。一个硬件节点可以运行数以百计的的容器，非常节省资源，QoS 会尽量满足，但不保证一定满足。内核由提供者升级，服务由服务提供者管理</td>
 <td style="text-align:left">对操作系统具有绝对权限，对系统版本和系统升级具有完全的管理权限。具有一整套的的资源：CPU、RAM 和磁盘。QoS 是有保证的，每一个虚拟机就像一个真实的物理机一样，可以实现不同的操作系统运行在同一物理节点上。</td>
 </tr>
 <tr>
@@ -38,7 +38,7 @@ Docker可以方便打包，测试及应用部署
 <tr>
 <td style="text-align:left">远程管理</td>
 <td style="text-align:left">根据操作系统的不同，可以通过 shell 或者远程桌面进行</td>
-<td style="text-align:left">远程控制由虚拟化平台提供，可以在虚拟机启动之前连接</td>
+<td style="text-align:left">远程控制由虚拟化平台提供，可以在虚拟机启动之前连接</td>
 </tr>
 <tr>
 <td style="text-align:left">缺点</td>
@@ -67,7 +67,7 @@ Docker可以方便打包，测试及应用部署
 </tr>
 <tr>
 <td style="text-align:left">系统支持数量</td>
-<td style="text-align:left">单机支持上千个</td>
+<td style="text-align:left">单机支持上千个</td>
 <td style="text-align:left">一般不多于几十个</td>
 </tr>
 </tbody>
@@ -132,7 +132,7 @@ docker pull java:8
 ```
 ### 查找镜像支持的版本
 - 进入docker hub官网，地址(https://hub.docker.com)
-- 搜索镜像
+- 搜索镜像<br>
 ![docker](../assets/images/docker/docker01.jpg)<br>
 ![docker](../assets/images/docker/docker02.jpg)<br>
 - 镜像下载
@@ -249,13 +249,11 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 ```
 ### 进入容器
 - 先查询出容器的pid
-docker inspect --format "{{.State.Pid}}" $ContainerName(或者$ContainerId)
 ```
 [root@localhost ~]# docker inspect --format "{{.State.Pid}}" nginx
 53590
 ```
 - 根据pid进入容器
-nsenter --target "$pid" --mount --uts --ipc --net --pid
 ```
 [root@localhost ~]# docker inspect --format "{{.State.Pid}}" nginx
 53590
@@ -296,7 +294,6 @@ docker logs $ContainerName(或者$ContainerId) -f
 /docker-entrypoint.sh: Configuration complete; ready for start up
 ```
 ### 查看容器的ip
-docker inspect --format '{{ .NetworkSettings.IPAddress }}' $ContainerName(或者$ContainerId)
 ```
 [root@localhost ~]# docker inspect --format '{{ .NetworkSettings.IPAddress }}' nginx
 172.17.0.2

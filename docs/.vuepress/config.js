@@ -6,6 +6,7 @@ module.exports = {
       { text: 'Home', link: '/' },
       { text: 'vuepress', link: '/vuepress/' },
       { text: 'git', link: '/git/' },
+      { text: 'docker', link: '/docker/' },
       { text: 'badger', link: '/badger/' },
       { text: 'badger-ui', link: '/badger-ui/' },
       {text:'前端',link:'/mall-learning/web/'},

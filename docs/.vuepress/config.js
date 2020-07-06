@@ -62,6 +62,7 @@ module.exports = {
         collapsable: false,
         children:[
           {title:'docker使用',path:'/docker/'},
+          {title:'修改端口',path:'/docker/port'},
         ]
       }],
       '/mall-learning/admin':[{

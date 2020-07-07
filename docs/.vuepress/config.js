@@ -63,6 +63,7 @@ module.exports = {
         children:[
           {title:'docker使用',path:'/docker/'},
           {title:'修改端口',path:'/docker/port'},
+           {title:'应用',path:'/docker/vim'},
         ]
       }],
       '/mall-learning/admin':[{

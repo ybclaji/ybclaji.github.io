@@ -64,6 +64,9 @@ module.exports = {
           {title:'docker使用',path:'/docker/'},
           {title:'修改端口',path:'/docker/port'},
            {title:'应用',path:'/docker/vim'},
+           {title:'自建仓库',path:'/docker/registry'},
+           {title:'maven插件构建镜像',path:'/docker/mavenplugin'},
+           {title:'dockerfile构建镜像',path:'/docker/dockerfile'},
         ]
       }],
       '/mall-learning/admin':[{

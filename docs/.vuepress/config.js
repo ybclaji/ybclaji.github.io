@@ -4,6 +4,7 @@ module.exports = {
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
+      { text: 'springsecurity', link: '/springsecurity/' },
       { text: 'vuepress', link: '/vuepress/' },
       { text: 'git', link: '/git/' },
       { text: 'docker', link: '/docker/' },
@@ -41,8 +42,17 @@ module.exports = {
           {title:'部署',path:'/vuepress/deploy'},
         ]
       }],
+      '/springsecurity/':[{
+        title:'介绍',
+        collapsable: false,
+
+        children:[
+          {title:'简介',path:'/springsecurity/'}
+        ]
+      }],
       '/git/':[{
         title:'git&github',
+        siderbarDepth:2,
         collapsable: false,
         children:[
           {title:'上手',path:'/git/'},

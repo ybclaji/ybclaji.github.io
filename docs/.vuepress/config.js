@@ -8,6 +8,7 @@ module.exports = {
       { text: 'vuepress', link: '/vuepress/' },
       { text: 'git', link: '/git/' },
       { text: 'docker', link: '/docker/' },
+      { text: 'vue', link: '/vue/' },
       { text: 'badger', link: '/badger/' },
       { text: 'badger-ui', link: '/badger-ui/' },
       {text:'前端',link:'/mall-learning/web/'},
@@ -22,6 +23,14 @@ module.exports = {
         children:[
           {title:'说明',path:'/badger/'},
           {title:'开发环境',path:'/badger/env'},
+        ]
+      }],
+      '/vue/':[{
+        title:'Vue',
+        collapsable: false,
+        children:[
+          {title:'笔记',path:'/vue/'}
+
         ]
       }],
       '/badger-ui/':[{

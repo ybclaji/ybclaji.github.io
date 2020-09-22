@@ -9,6 +9,7 @@ module.exports = {
       { text: 'git', link: '/git/' },
       { text: 'docker', link: '/docker/' },
       { text: 'vue', link: '/vue/' },
+      { text: 'spring', link: '/spring/' },
       { text: 'badger', link: '/badger/' },
       { text: 'badger-ui', link: '/badger-ui/' },
       {text:'前端',link:'/mall-learning/web/'},
@@ -30,6 +31,14 @@ module.exports = {
         collapsable: false,
         children:[
           {title:'笔记',path:'/vue/'}
+
+        ]
+      }],
+      '/spring/':[{
+        title:'Spring',
+        collapsable: false,
+        children:[
+          {title:'笔记',path:'/spring/'}
 
         ]
       }],

@@ -142,17 +142,60 @@ auditingFilterRegistrationBean() {
 - JPA定义了java对象持久化的方式，通过使用ORM机制建立对象模型和数据库中数据的桥梁。
 - JDBC接口解决和数据库的交互，JPA以面向对象的方式解决对象模型到数据库的存储，检索，JPA
 的实现依赖JDBC驱动
-
-
-
-
-
-
-
-
-
-
-
+## Spring AOP
+应用程序资源被访问时应该带有认证和授权，很多接口被访问时要带有安全检查，不可能在每个接口那里做安全
+检查，因为导致了代码重复。这就需要在一个统一的地方执行安全检查，过滤器就是。但是过滤器安全检查只能在请求层面
+执行，不能在方法级别检查，只有AOP能满足要求
+### AOP概念
+想要做什么事，比如日志，关注点就是要出日志的个各类，切面就是把处理个各类日志的逻辑放到一个类里面，连接点就是个各类里面要
+出日志的方法，通知就是怎么出日志的方法，切入点就是切面中怎么才能匹配到要处理的类的方法<br>
+- 关注点：concern,关注点跨越多个类，包括日志类型，事务类型等
+- 切面：aspects,关注点代码在多个类存在，当把关注点逻辑放到一个面上不分散到多个类中就是切面
+- 连接点：join point,需要被检查的方法
+- 通知：Advice,切面类中的方法，处理关注的动作，包括不同类型：安全类型，日志日志等，通知有不同的执行方式
+    - before advice:使用@Before注解，在连接点之前执行，除非抛出异常，否则不能阻止连接点执行
+    - After returning advice:使用@AfterReturning注解，连接点正常执行后执行，不会引发异常
+    - After throwing advice:使用@AfterThrowing注解，当方法抛出异常退出时执行
+    - After advice:使用@After，通知的执行和连接点执行情况无关，像是try catch中的final block
+    - Around advice:使用@Around,环绕通知，全方位控制
+- 切入点：Pointcuts,用于匹配连接点，通过切入点表达式起作用,可以使用@Pointcut来声明一个切入点签名，声明的方法没有返回值，是个空方法
+### 自定义注解
+通常情况下使用切入点表达式匹配连接点，当需要指定方法时通过自定义注解的方式，只需要在方法上加上注解
+## Spring事务管理
+Spring事务提供了不同事务API的抽象，包括JTA(全局事务)、JDBC API\Hibernate事务API、JPA事务API,后面三种是本地事务<br>
+- 全局事务可以使用多个事务源
+- 本地事务使用特定的源，不能使用多个源
+- Spring事务管理支持编程式和声明式事务管理
+    - 编程式：使用Spring's TransactionTemplate API或者PlatformTransactionManager API
+    - 声明式：基于AOP，使用@Transactional注解
+- 无论编程式和声明式事务管理都支持回滚
+### PlatformTransactionManager接口
+对于不同的底层事务API，都有一个特定的实现，这些实现源于org.springframework.transaction.PlatformTransactionManager interface
+对于Hibernate，PlatformTransactionManager的实现是HibernateTransactionManager,对于JDBC,实现是DataSourceTransactionManager...
+```
+public interface PlatformTransactionManager {
+TransactionStatus getTransaction(TransactionDefinition definition) throws
+TransactionException;
+void commit(TransactionStatus status) throws TransactionException;
+void rollback(TransactionStatus status) throws TransactionException;
+}
+```
+## Spring boot
+- 使用Spring Boot创建web应用是非常简单的，这种简单通过starters和自动化配置实现
+- Spring boot应用通常继承自spring-boot-starter-parent项目，这个项目提供了maven的缺省值和依赖管理部分，使用中
+不必指定依赖的版本，需要做的是是定spring boot的版本，当然也可以指定版本对spring boot的推荐进行覆盖
+- Spring boot支持多种技术，要开始使用某种技术，只需要把这个技术对应的starter添加到依赖里，spring boot 会负责初始化需要的beans
+### starters
+- Spring Boot starters是依赖描述符的集合，只包含依赖描述文件pom.xml
+- spring boot 有一个核心的starter,spring-bot-starter,所有其他的starters都依赖这个核心的starter，这个核心starter提供自动化配置的支持
+- the core starter也是一个依赖描述文件，其自动化配置能力来源于spring-boot-autoconfigure依赖
+### 自动化配置
+- spring boot starters的自动化配置能力来源于spring-boot-autoconfigure
+- @SpringBootApplication是自动化配置的触发器，它包含一组3个注解
+    - @SpringBootConfiguration
+    - @EnableAutoConfiguration
+    - @ComponentScan
+- 当使用@EnableAutoConfiguration时，spring-boot-autoconfigure将用类载入器载入元数据META-INF/spring.factories，所有的依赖都将被载入
 
 
 

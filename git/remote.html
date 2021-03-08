@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>推送到远程仓库 | 善良的颜小色</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="Just playing around">
+    
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.7851d9d3.js" as="script"><link rel="preload" href="/assets/js/2.399aa959.js" as="script"><link rel="preload" href="/assets/js/37.6fa2a76f.js" as="script"><link rel="prefetch" href="/assets/js/10.ff83f821.js"><link rel="prefetch" href="/assets/js/11.39baa6f6.js"><link rel="prefetch" href="/assets/js/12.a2c90d87.js"><link rel="prefetch" href="/assets/js/13.3cc9813a.js"><link rel="prefetch" href="/assets/js/14.5d11734b.js"><link rel="prefetch" href="/assets/js/15.f460c03a.js"><link rel="prefetch" href="/assets/js/16.8ae5d6dd.js"><link rel="prefetch" href="/assets/js/17.2d122239.js"><link rel="prefetch" href="/assets/js/18.bfe3a0d0.js"><link rel="prefetch" href="/assets/js/19.c94f4820.js"><link rel="prefetch" href="/assets/js/20.c9c596c7.js"><link rel="prefetch" href="/assets/js/21.c822801a.js"><link rel="prefetch" href="/assets/js/22.4a744fa7.js"><link rel="prefetch" href="/assets/js/23.eca7c68e.js"><link rel="prefetch" href="/assets/js/24.4d50446b.js"><link rel="prefetch" href="/assets/js/25.a3f2e3f6.js"><link rel="prefetch" href="/assets/js/26.576b826d.js"><link rel="prefetch" href="/assets/js/27.de32895f.js"><link rel="prefetch" href="/assets/js/28.adcd49f2.js"><link rel="prefetch" href="/assets/js/29.dc157d1a.js"><link rel="prefetch" href="/assets/js/3.85b515e1.js"><link rel="prefetch" href="/assets/js/30.fe027e35.js"><link rel="prefetch" href="/assets/js/31.cd51e0be.js"><link rel="prefetch" href="/assets/js/32.9dae0978.js"><link rel="prefetch" href="/assets/js/33.26aecbac.js"><link rel="prefetch" href="/assets/js/34.3a529a24.js"><link rel="prefetch" href="/assets/js/35.a4fb4599.js"><link rel="prefetch" href="/assets/js/36.9bdca864.js"><link rel="prefetch" href="/assets/js/38.239d643f.js"><link rel="prefetch" href="/assets/js/39.95497d06.js"><link rel="prefetch" href="/assets/js/4.e04d31b6.js"><link rel="prefetch" href="/assets/js/40.084a720c.js"><link rel="prefetch" href="/assets/js/41.b69bf7c8.js"><link rel="prefetch" href="/assets/js/42.b4fad068.js"><link rel="prefetch" href="/assets/js/43.a4e33034.js"><link rel="prefetch" href="/assets/js/44.2992962d.js"><link rel="prefetch" href="/assets/js/45.9f5a4514.js"><link rel="prefetch" href="/assets/js/5.b55638b2.js"><link rel="prefetch" href="/assets/js/6.9055870b.js"><link rel="prefetch" href="/assets/js/7.8a102364.js"><link rel="prefetch" href="/assets/js/8.52b3b1af.js"><link rel="prefetch" href="/assets/js/9.360f47c8.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">善良的颜小色</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/springsecurity/" class="nav-link">
+  springsecurity
+</a></div><div class="nav-item"><a href="/vuepress/" class="nav-link">
+  vuepress
+</a></div><div class="nav-item"><a href="/git/" class="nav-link router-link-active">
+  git
+</a></div><div class="nav-item"><a href="/docker/" class="nav-link">
+  docker
+</a></div><div class="nav-item"><a href="/vue/" class="nav-link">
+  vue
+</a></div><div class="nav-item"><a href="/spring/" class="nav-link">
+  spring
+</a></div><div class="nav-item"><a href="/badger/" class="nav-link">
+  badger
+</a></div><div class="nav-item"><a href="/badger-ui/" class="nav-link">
+  badger-ui
+</a></div><div class="nav-item"><a href="/webfront/" class="nav-link">
+  前端
+</a></div><div class="nav-item"><a href="/back/" class="nav-link">
+  后端
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><a href="/springsecurity/" class="nav-link">
+  springsecurity
+</a></div><div class="nav-item"><a href="/vuepress/" class="nav-link">
+  vuepress
+</a></div><div class="nav-item"><a href="/git/" class="nav-link router-link-active">
+  git
+</a></div><div class="nav-item"><a href="/docker/" class="nav-link">
+  docker
+</a></div><div class="nav-item"><a href="/vue/" class="nav-link">
+  vue
+</a></div><div class="nav-item"><a href="/spring/" class="nav-link">
+  spring
+</a></div><div class="nav-item"><a href="/badger/" class="nav-link">
+  badger
+</a></div><div class="nav-item"><a href="/badger-ui/" class="nav-link">
+  badger-ui
+</a></div><div class="nav-item"><a href="/webfront/" class="nav-link">
+  前端
+</a></div><div class="nav-item"><a href="/back/" class="nav-link">
+  后端
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>git&amp;github</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/git/" aria-current="page" class="sidebar-link">上手</a></li><li><a href="/git/concept.html" class="sidebar-link">概念</a></li><li><a href="/git/activity.html" class="sidebar-link">流程</a></li><li><a href="/git/action.html" class="sidebar-link">基本操作</a></li><li><a href="/git/branch.html" class="sidebar-link">分支</a></li><li><a href="/git/remote.html" aria-current="page" class="active sidebar-link">远程</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/git/remote.html#推送到远程仓库" class="sidebar-link">推送到远程仓库</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/git/remote.html#git-remote-add-添加远程仓库" class="sidebar-link">git remote add——添加远程仓库</a></li><li class="sidebar-sub-header"><a href="/git/remote.html#git-push-推送至远程仓库" class="sidebar-link">git push——推送至远程仓库</a></li><li class="sidebar-sub-header"><a href="/git/remote.html#推送至master-以外的分支" class="sidebar-link">推送至master 以外的分支</a></li></ul></li><li class="sidebar-sub-header"><a href="/git/remote.html#从远程仓库获取" class="sidebar-link">从远程仓库获取</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/git/remote.html#git-clone-获取远程仓库" class="sidebar-link">git clone——获取远程仓库</a></li><li class="sidebar-sub-header"><a href="/git/remote.html#git-pull-获取最新的远程仓库分支" class="sidebar-link">git pull——获取最新的远程仓库分支</a></li></ul></li></ul></li><li><a href="/git/pullrequest.html" class="sidebar-link">P&amp;R</a></li><li><a href="/git/devflow.html" class="sidebar-link">开发流程</a></li><li><a href="/git/gitflow.html" class="sidebar-link">git-flow</a></li><li><a href="/git/otherDoc.html" class="sidebar-link">外链</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="推送到远程仓库"><a href="#推送到远程仓库" class="header-anchor">#</a> 推送到远程仓库</h2> <p>先在git上创建远程仓库，前面的文档有。</p> <h3 id="git-remote-add-添加远程仓库"><a href="#git-remote-add-添加远程仓库" class="header-anchor">#</a> git remote add——添加远程仓库</h3> <p>按照格式执行git remote add命令之后，Git 会自动将
+git@github.com:github-book/git-tutorial.git远程仓库的
+名称设置为origin（标识符）。</p> <div class="language- extra-class"><pre class="language-text"><code>$ git remote add origin git@github.com:ybclaji/gitExercise.git
+</code></pre></div><h3 id="git-push-推送至远程仓库"><a href="#git-push-推送至远程仓库" class="header-anchor">#</a> git push——推送至远程仓库</h3> <p>如果想将当前分支下本地仓库中的内容推送给远程仓库，需要用到
+git push命令。现在假定我们在master 分支下进行操作</p> <div class="language- extra-class"><pre class="language-text"><code>$ git push -u origin master
+Counting objects: 20, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (20/20), 1.60 KiB, done.
+Total 20 (delta 3), reused 0 (delta 0)
+To git@github.com:github-book/git-tutorial.git
+* [new branch] master -&gt; master
+Branch master set up to track remote branch master from origin.
+</code></pre></div><p>像这样执行git push命令，当前分支的内容就会被推送给远程仓库
+origin 的master 分支。-u参数可以在推送的同时，将origin 仓库的master 分
+支设置为本地仓库当前分支的upstream（上游）。添加了这个参数，将来
+运行git pull命令从远程仓库获取内容时，本地仓库的这个分支就可
+以直接从origin 的master 分支获取内容，省去了另外添加参数的麻烦<br>
+执行该操作后，当前本地仓库master 分支的内容将会被推送到
+GitHub 的远程仓库中。在GitHub 上也可以确认远程master 分支的内容和本地master 分支相同</p> <h3 id="推送至master-以外的分支"><a href="#推送至master-以外的分支" class="header-anchor">#</a> 推送至master 以外的分支</h3> <p>除了master 分支之外，远程仓库也可以创建其他分支，在本地创建feature-D分支，以同名形式push至远程仓库</p> <div class="language- extra-class"><pre class="language-text"><code>$ git checkout -b feature-D
+Switched to a new branch 'feature-D'
+$ git push -u origin feature-D
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create a pull request for 'feature-D' on GitHub by visiting:
+remote:      https://github.com/ybclaji/gitExercise/pull/new/feature-D
+remote:
+To github.com:ybclaji/gitExercise.git
+ * [new branch]      feature-D -&gt; feature-D
+Branch 'feature-D' set up to track remote branch 'feature-D' from 'origin'.
+</code></pre></div><h2 id="从远程仓库获取"><a href="#从远程仓库获取" class="header-anchor">#</a> 从远程仓库获取</h2> <p>以为同学先开发一部分push到了代码库，另一个同学接着共同开发，他需要获取代码</p> <h3 id="git-clone-获取远程仓库"><a href="#git-clone-获取远程仓库" class="header-anchor">#</a> git clone——获取远程仓库</h3> <p>新建个目录用于测试gitTest1,将github上的仓库clone到本地,执行git clone命令后我们会默认处于master 分支下，同时系统
+会自动将origin 设置成该远程仓库的标识符。也就是说，当前本地仓库
+的master 分支与GitHub 端远程仓库（origin）的master 分支在内容上是
+完全相同的</p> <div class="language- extra-class"><pre class="language-text"><code>$ cd ../gitTest1/
+$ git clone git@github.com:ybclaji/gitExercise.git
+Cloning into 'gitExercise'...
+Warning: Permanently added the RSA host key for IP address '13.229.188.59' to the list of known hosts.
+remote: Enumerating objects: 29, done.
+remote: Counting objects: 100% (29/29), done.
+remote: Compressing objects: 100% (8/8), done.
+remote: Total 29 (delta 3), reused 29 (delta 3), pack-reused 0
+Receiving objects: 100% (29/29), done.
+Resolving deltas: 100% (3/3), done.
+</code></pre></div><p>-a 参数同时显示本地库和远程库</p> <div class="language- extra-class"><pre class="language-text"><code>$ git branch -a
+* master
+  remotes/origin/HEAD -&gt; origin/master
+  remotes/origin/feature-D
+  remotes/origin/master
+</code></pre></div><h4 id="获取远程的feature-d-分支"><a href="#获取远程的feature-d-分支" class="header-anchor">#</a> 获取远程的feature-D 分支</h4> <p>-b 参数的后面是本地仓库中新建分支的名称。为了便于理解，我
+们仍将其命名为feature-D，让它与远程仓库的对应分支保持同名。新建
+分支名称后面是获取来源的分支名称。例子中指定了origin/feature-D，
+就是说以名为origin 的仓库（这里指GitHub 端的仓库）的feature-D 分
+支为来源，在本地仓库中创建feature-D 分支。</p> <div class="language- extra-class"><pre class="language-text"><code>$ git checkout -b feature-D origin/feature-D
+Switched to a new branch 'feature-D'
+Branch 'feature-D' set up to track remote branch 'feature-D' from 'origin'.
+</code></pre></div><p>执行完上面的命令，head指向feature-D</p> <h4 id="向本地的feature-d-分支提交更改"><a href="#向本地的feature-d-分支提交更改" class="header-anchor">#</a> 向本地的feature-D 分支提交更改</h4> <p>在本地修改README.md添加feature-D</p> <div class="language- extra-class"><pre class="language-text"><code>$ git diff
+diff --git a/README.md b/README.md
+index f81cdf8..4c92626 100644
+--- a/README.md
++++ b/README.md
+@@ -4,3 +4,4 @@ feature-A
+ fix-B
+ -fix-c
+ -feature-C
++-feature-D
+$ git commit -am &quot;add feature-D&quot;
+[feature-D c30f1be] add feature-D
+ 1 file changed, 1 insertion(+)
+</code></pre></div><h4 id="推送feature-d-分支"><a href="#推送feature-d-分支" class="header-anchor">#</a> 推送feature-D 分支</h4> <div class="language- extra-class"><pre class="language-text"><code>$ git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 283 bytes | 141.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:ybclaji/gitExercise.git
+   2d984a1..c30f1be  feature-D -&gt; feature-D
+</code></pre></div><h3 id="git-pull-获取最新的远程仓库分支"><a href="#git-pull-获取最新的远程仓库分支" class="header-anchor">#</a> git pull——获取最新的远程仓库分支</h3> <p>回到gitTest目录，这边有feature-D分支但是没有提交，远程仓库中feature-D分支中有了提交，这时可以使用git pull来更新本地feature-D分支的状态</p> <div class="language- extra-class"><pre class="language-text"><code>$ git pull origin feature-D
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 3 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 263 bytes | 1024 bytes/s, done.
+From github.com:ybclaji/gitExercise
+ * branch            feature-D  -&gt; FETCH_HEAD
+   2d984a1..c30f1be  feature-D  -&gt; origin/feature-D
+Updating 2d984a1..c30f1be
+Fast-forward
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
+ $ cat README.md
+ aaa
+ git 教程
+ feature-A
+ fix-B
+ -fix-c
+ -feature-C
+ -feature-D
+
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/git/branch.html" class="prev">
+        分支
+      </a></span> <span class="next"><a href="/git/pullrequest.html">
+        P&amp;R
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.7851d9d3.js" defer></script><script src="/assets/js/2.399aa959.js" defer></script><script src="/assets/js/37.6fa2a76f.js" defer></script>
+  </body>
+</html>

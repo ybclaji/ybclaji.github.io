@@ -97,12 +97,12 @@ module.exports = {
            {title:'dockerfile构建镜像',path:'/docker/dockerfile'},
         ]
       }],
-      '/mall-learning/admin':[{
-        title:'mall后端学习',
+      '/webfront/html':[{
+        title:'前端',
         collapsable: false,
         children:[
-          {title:'前端',path:'/mall-learning/admin/'},
-          {title:'后端',path:'/mall-learning/admin/'},
+          {title:'前端',path:'/webfront/html/'},
+          {title:'基础',path:'/webfront/html/introduce'},
         ]
       }],
       '/mall-learning/web/':[{

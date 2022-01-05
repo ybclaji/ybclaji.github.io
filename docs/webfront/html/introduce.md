@@ -53,8 +53,51 @@
 
 - `<html lang="en">`: 当前文档显示的语言
 
-- charset="UTF-8": 文档使用UTF-8进行编码
+- `charset="UTF-8"`: 文档使用UTF-8进行编码
 ##### 常用标签
 - 标题： `<h1></h1`  1-6 文字加粗，一行显示，依次变小
+
 - 段落：`<p></p>` 把文字变成段落，段落之间有空隙
-- 换行：`<br/>` break的缩写
+
+- 换行：`<br />` break的缩写
+
+- 文本格式化标签：
+	- 粗体`<strong></strong><b></b>`
+  - 斜体`<em></em><i></i>`
+  - 删除线`<del></del><s></s>`
+  - 下划线`<ins></ins><u></u>`
+
+- 布局标签
+  - `<div> <span>`
+  - div标签单独占一行
+  - 一行可以有多个span
+  
+- 图形标签
+	- `<img src="" alt="替换文本" title="提示文本鼠标移动显示" width="" heigh="" border=""/>`
+	- 行内标签
+	
+- 路径
+	- 相对路径:以引用文件所在位置为参考的相对位置
+		- 同一级 直接引用文件名src="img.img"
+		- 上一级 src="../images/img.img"
+		- 下一级 src="images/img.img"
+	- 绝对路径:文件的绝对位置
+	
+- 超链接
+	- 语法`<a href="跳转目标" target="弹出方式"></a>`
+	- 连接分类
+		- 外部链接 `<a href="http://www.qq.com">腾讯</a>`
+		- 内部链接 网站内部页面链接,直接链接页面 `<a href="index.html">首页</a>`
+		- 空链接 `<a href="#">空链接</a>`
+		- 下载链接： 如果href地址是文件或者压缩包，会产生下载
+		- 网页元素链接：不止文字可以做链接，图片图像表格音频视频等都可以做链接
+		- 锚点链接：`<a href="#tow">锚点</a>  <h3 id="two">第二季</h3>`
+	- target 
+		- _self 当前窗口
+		- _blank 新窗口
+	
+- html注释
+	- 语法： <!-- 注释 -->
+	
+- 特殊字符
+  <img src="../../assets/images/webfront/ht01.png"/>

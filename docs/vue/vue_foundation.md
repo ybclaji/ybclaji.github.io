@@ -40,8 +40,9 @@
 webpack.config.js是webpack的配置文件，执行npm run dev时先读取webpack配置文件，然后执行webpack命令
 > 在webpack4.x、5.x中有如下约定：1、默认打包入口文件在src中找index.js,2、默认输出文件路径dist->main.js,修改路径和文件名均会导致报错，可以在webpack.config.js中修改打包的默认约定
 ##### 自定义打包的入口与出口
-在webpack.config.js中，通过entry节点置顶打包的入口，output节点指定打包的出口
+在webpack.config.js中，通过entry节点指定打包的入口，output节点指定打包的出口
 <img src="..\assets\images\vue\wp04.png" alt="w" style="margin:0" />
+
 ##### webpack插件
 > 每次修改源码运行页面都需要npm run dev，如何解决这个问题？
 1. webpack-dev-server
@@ -87,4 +88,89 @@ npm ERR! notarget
 npm ERR! notarget It was specified as a dependency of 'webpacktest'
 npm ERR! notarget
 	```
-  	-  
+> 安装插件后修改index.js后，会自动运行webpack-dev-serve,看打印信息地址变更为localhost:8080,输出变为根目录，此时bundle.js文件存储在内存中，方便快速更新，需要在html中引入bundle.js
+```<!-- 加载引入内存中的budle.js -->
+    <script src="/bundle.js"></script>
+```
+```
+  	i ｢wds｣: Project is running at http://localhost:8080/
+i ｢wds｣: webpack output is served from /
+i ｢wds｣: Content not from webpack is served from D:\project\webfront\vue\webpacktest
+i ｢wdm｣: asset bundle.js 689 KiB [emitted] (name: main)
+```
+
+ 4.  如何在运行wepack-dev-serve后，打开localhost:8080能直接打开首页？
+
+    > 使用html-webpack-plugin，会把指定的页面复制到根目录,然后也不需要在index.html中引入内存中的bundle.js
+
+` npm install html-webpack-plugin@5.3.2 -D`
+
+	 html-webpack-plugin的使用
+```
+//1 导入html-webpack-plugin插件，得到插件的构造函数
+const HtmlPlugin = require('html-webpack-plugin')
+//2 new 构造函数，创建插件实例
+const htmlPuugin = new HtmlPlugin({
+    //指定要复制的页面
+    template:'./src/index.html',
+    //指定复制文件的存放路径,会存储在内存
+    filename:'./index.html'
+})
+//使用node.js导出语法，导出一个webpack配置对象
+module.exports = {
+    
+    mode: 'development',  //开发阶段development 生产阶段production
+    entry: path.join(__dirname,'./src/index.js'),  //打包入口文件的路径
+    output:{
+        path: path.join(__dirname,'./dist'),  //输出文件的存放路径
+        filename:'bundle.js'  //输出文件的名称
+    },
+    //3 插件的数组，webpack运行时，会调用插件
+    plugins:[htmlPuugin]
+}
+```
+5. dev-serve节点
+配置webpack.config.js，在运行npm run dev后 自动打开浏览器,指定端口号，地址
+```
+ devServer: {
+        open:true,  //自动打开浏览器
+        port:80,   //指定端口号
+        //指定运行的地址
+        host:'127.0.0.1'
+    }
+```
+6. webpack里的loader
+webpack默认只能处理.js的文件模块，其他非js模块，需要调用loader处理，如处理.css
+<img src="..\assets\images\vue\wp05.png" alt="w" style="margin:0" />
+> loader处理过程
+<img src="..\assets\images\vue\wp06.png" alt="w" style="margin:0" />
+<img src="..\assets\images\vue\wp07.png" alt="w" style="margin:0" />
+<img src="..\assets\images\vue\wp08.png" alt="w" style="margin:0" />
+<img src="..\assets\images\vue\wp09.png" alt="w" style="margin:0" />
+
+7. webpack处理js高级语法
+<img src="..\assets\images\vue\wp10.png" alt="w" style="margin:0" />
+babel-loader安装
+<img src="..\assets\images\vue\wp11.png" alt="w" style="margin:0" />
+配置babel-loader
+<img src="..\assets\images\vue\wp12.png" alt="w" style="margin:0" />
+8. webpack打包发布
+<img src="..\assets\images\vue\wp13.png" alt="w" style="margin:0" />
+图片放到images
+<img src="..\assets\images\vue\wp14.png" alt="w" style="margin:0" />
+js文件放到js目录
+<img src="..\assets\images\vue\wp15.png" alt="w" style="margin:0" />
+每次发布前自动删除dist
+<img src="..\assets\images\vue\wp16.png" alt="w" style="margin:0" />
+
+9 sourcemap
+sourceMap是信息文件，存储了位置信息，开发阶段打开sourcemap,发布阶段需要关闭
+<img src="..\assets\images\vue\wp17.png" alt="w" style="margin:0" />
+<img src="..\assets\images\vue\wp18.png" alt="w" style="margin:0" />
+<img src="..\assets\images\vue\wp19.png" alt="w" style="margin:0" />
+<img src="..\assets\images\vue\wp20.png" alt="w" style="margin:0" />
+<img src="..\assets\images\vue\wp21.png" alt="w" style="margin:0" />
+<img src="..\assets\images\vue\wp22.png" alt="w" style="margin:0" />
+10 路径问题
+配置使用@表示src目录`import msg from '@/msg'
+<img src="..\assets\images\vue\wp23.png" alt="w" style="margin:0" />

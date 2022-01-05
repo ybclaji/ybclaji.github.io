@@ -3,9 +3,11 @@
 ### vue实例
 创建一个vue实例是每一个vue app的开始，通常
 一个Vue application包含两种类型的实例，根vue实例和组件实例
+
 #### 创建根实例
 `new Vue({/* options */})`
 options对象描述应用，Vue.js使用它来初始化实例
+
 ## 一个简单例子
 ```
 1. <!DOCTYPE html>
@@ -45,7 +47,7 @@ newMessage: ''
 ```
 ### 使用模板作为UI展示数据
 使用模板有三种方式，分别是在vue现象中添加template属性，
-在html挂在点钟插入模板，使用标签<script type="x-template" id="temlApp>,在把#temlApp放入到vue选项中
+在html挂载点钟插入模板，使用标签<script type="x-template" id="temlApp>,在把#temlApp放入到vue选项中
 通常使用第二种方式<br>
 ```
 5. <div id="app">
